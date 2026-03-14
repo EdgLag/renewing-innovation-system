@@ -10,7 +10,7 @@
 
 This repository contains the code, model artefacts, embeddings, and results for the paper:
 
-> Lagomarsino, E. (2025). *Renewing Innovation Systems: Knowledge Pathways Structuring Technological Development*. Under review at Journal of Innovation and Knowledge.
+> Lagos, E. E. (2025). *Renewing Innovation Systems: Knowledge Pathways Structuring Technological Development*. Under review at Journal of Innovation and Knowledge.
 
 ---
 
@@ -34,19 +34,18 @@ We model the European innovation system as a **heterogeneous graph** (96,921 fir
 ---
 
 ## Repository structure
-
 ```
-renewing-innovation-systems/
+renewing-innovation-system/
 │
 ├── README.md
 ├── requirements.txt
 ├── CITATION.cff
 ├── LICENSE
 │
-├── notebooks/
-│   ├── GeniZ_def.ipynb              ← Main model: GeniZ architecture, training,
-│   │                                   pathway selection, PFI, core-periphery
-│   └── 05b_GeniZ_MetapathSelection_Experiment.ipynb
+├── 01_GeniZ_PathwaySelection_and_SystemContour.ipynb
+│                                    ← Main model: GeniZ architecture, training,
+│                                       pathway selection, PFI, core-periphery
+├── 02_GeniZ_TrimmingExperiments_MetapathComparison.ipynb
 │                                    ← Trimming experiments (Exp-A, B, C)
 │                                       comparing 10mp → 9mp → 8mp → 7mp
 │
@@ -65,18 +64,15 @@ renewing-innovation-systems/
 │       └── metapath_14_emb.pkl      ← FoS–FoS–FoS ★
 │           (★ = backbone pathways; MP4 attention=0.405, MP14 attention=0.237)
 │
-├── results/
-│   ├── core_periphery_expc.csv      ← GMM zone assignments (96,817 firms)
-│   ├── summary_final_expc.json      ← Full metrics, attention weights, PFI
-│   └── figures/
-│       ├── Fig1_HeterogeneousGraph.png
-│       ├── Fig2_Metapath2vec.png
-│       ├── Fig3_GeniZ.png
-│       ├── comparison_chart.png     ← Trimming experiment metrics
-│       └── core_periphery_expc.png  ← GMM core-periphery visualization
-│
-└── paper/
-    └── Renewing_Innovation_Systems_FINAL.docx
+└── results/
+    ├── core_periphery_expc.csv      ← GMM zone assignments (96,817 firms)
+    ├── summary_final_expc.json      ← Full metrics, attention weights, PFI
+    └── figures/
+        ├── Fig1_HeterogeneousGraph.png
+        ├── Fig2_Metapath2vec.png
+        ├── Fig3_GeniZ.png
+        ├── comparison_chart.png
+        └── core_periphery_expc.png
 ```
 
 ---
@@ -139,7 +135,7 @@ The heterogeneous graph is built from:
 
 - **Coverage:** 96,921 firms, EU27 + United Kingdom
 - **Sectors:** Medium-high and high-technology manufacturing (Eurostat NACE Rev. 2)
-- **Sources linked:** Orbis (firm IDs), PATSTAT (patents), Microsoft Academic Graph 2019 (fields of study, publications)
+- **Sources linked:** Orbis (firm IDs), PATSTAT (patents), Microsoft Academic Graph 2019 (fields of study)
 - **Structure:** Single cross-section (no panel dimension)
 
 ---
@@ -147,13 +143,11 @@ The heterogeneous graph is built from:
 ## Reproducibility
 
 ### Requirements
-
 ```bash
 pip install -r requirements.txt
 ```
 
 ### Quickstart (with Zenodo data)
-
 ```python
 # 1. Load the graph
 import dgl
@@ -168,15 +162,15 @@ with open('data/embeddings/metapath_4_emb.pkl', 'rb') as f:
 with open('data/diccionarios/entity2idx.pkl', 'rb') as f:
     entity2idx = pickle.load(f)
 
-# 4. Run GeniZ_def.ipynb for full pipeline
+# 4. Run notebook 01 for full pipeline
 ```
 
 ### Notebooks
 
 | Notebook | Purpose | Runtime (GPU) |
 |----------|---------|---------------|
-| `GeniZ_def.ipynb` | Full pipeline: data loading → GeniZ Lite → branch selection → GeniZ Final → PFI → GMM | ~2–3 hours |
-| `05b_GeniZ_MetapathSelection_Experiment.ipynb` | Trimming experiments comparing 10mp vs 9mp vs 8mp vs 7mp configurations | ~4–6 hours |
+| `01_GeniZ_PathwaySelection_and_SystemContour.ipynb` | Full pipeline: data loading → GeniZ Lite → branch selection → GeniZ Final → PFI → GMM | ~2–3 hours |
+| `02_GeniZ_TrimmingExperiments_MetapathComparison.ipynb` | Trimming experiments comparing 10mp vs 9mp vs 8mp vs 7mp | ~4–6 hours |
 
 Both notebooks are designed to run on **Google Colab Pro** with GPU acceleration. Set `BASE_DIR` to your Google Drive path.
 
@@ -186,24 +180,23 @@ Both notebooks are designed to run on **Google Colab Pro** with GPU acceleration
 
 | Pathway | Schema | Branch | PFI NDCG drop | Attention weight |
 |---------|--------|--------|---------------|-----------------|
-| MP4 | Firm–Patent–Country–Patent–Firm | B | 94.12% | 0.405 |
+| MP4  | Firm–Patent–Country–Patent–Firm | B | 94.12% | 0.405 |
 | MP14 | FoS–FoS–FoS | A | 14.65% | 0.237 |
-| MP7 | Firm–Country–Firm | B | 6.76% | 0.105 |
-| MP2 | Firm–FoS–FoS–Firm | A | 2.81% | 0.033 |
-| MP8 | Firm–Univ–Country–Univ–Firm | B | 0.48% | 0.051 |
+| MP7  | Firm–Country–Firm | B | 6.76% | 0.105 |
+| MP2  | Firm–FoS–FoS–Firm | A | 2.81% | 0.033 |
+| MP8  | Firm–Univ–Country–Univ–Firm | B | 0.48% | 0.051 |
 | MP10 | FoS–Product–FoS | A | −1.46% | 0.039 |
-| MP5 | Firm–Product–FoS–Product–Firm | A | −22.43% | 0.129 |
+| MP5  | Firm–Product–FoS–Product–Firm | A | −22.43% | 0.129 |
 
 ---
 
 ## Citation
 
 If you use this code, data, or results, please cite:
-
 ```bibtex
-@article{lagomarsino2025renewing,
+@article{lagos2025renewing,
   title   = {Renewing Innovation Systems: Knowledge Pathways Structuring Technological Development},
-  author  = {Lagomarsino, Edgardo},
+  author  = {Lagos, Edgardo E.},
   journal = {Journal of Innovation and Knowledge},
   year    = {2025},
   note    = {Under review}
@@ -221,4 +214,5 @@ If you use this code, data, or results, please cite:
 
 ## Contact
 
-Edgardo Lagomarsino — [GitHub: @EdgLag](https://github.com/EdgLag)
+Edgardo E. Lagos — [GitHub: @EdgLag](https://github.com/EdgLag)
+```

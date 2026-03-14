@@ -1,0 +1,66 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite as below."
+type: software
+title: "Renewing Innovation Systems: Knowledge Pathways Structuring Technological Development"
+authors:
+  - family-names: Lagomarsino
+    given-names: Edgardo
+    orcid: ""
+repository-code: "https://github.com/EdgLag/renewing-innovation-systems"
+license: MIT
+year: 2025
+abstract: >
+  Code and data artefacts for the paper "Renewing Innovation Systems: 
+  Knowledge Pathways Structuring Technological Development". Models the 
+  European innovation system as a heterogeneous graph and applies 
+  pathway-sensitive GNN representation learning (GeniZ) to identify 
+  which relational channels structure learning-based technological 
+  development. Submitted to Journal of Innovation and Knowledge.
+keywords:
+  - innovation systems
+  - knowledge pathways
+  - heterogeneous graphs
+  - graph neural networks
+  - metapath2vec
+  - technological trajectories
+  - European innovation system
+references:
+  - type: article
+    title: "metapath2vec: Scalable representation learning for heterogeneous networks"
+    authors:
+      - family-names: Dong
+        given-names: Yuxiao
+      - family-names: Chawla
+        given-names: Nitesh V.
+      - family-names: Swami
+        given-names: Ananthram
+    journal: "Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining"
+    year: 2017
+    doi: "10.1145/3097983.3098036"
+  - type: article
+    title: "Estimating node importance in knowledge graphs using graph neural networks"
+    authors:
+      - family-names: Park
+        given-names: Namyong
+      - family-names: Kan
+        given-names: Andrey
+      - family-names: Dong
+        given-names: Xin Luna
+      - family-names: Zhao
+        given-names: Tong
+      - family-names: Faloutsos
+        given-names: Christos
+    journal: "Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining"
+    year: 2019
+    doi: "10.1145/3292500.3330855"
+  - type: article
+    title: "Indicators on firm level innovation activities from web scraped data"
+    authors:
+      - family-names: Ashouri
+        given-names: Sara
+      - family-names: Suominen
+        given-names: Arho
+    journal: "Data in Brief"
+    volume: 42
+    year: 2022
+    doi: "10.34894/BS9XVR"

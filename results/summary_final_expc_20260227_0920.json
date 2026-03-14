@@ -1,0 +1,129 @@
+{
+  "run_id": "20260227_0920",
+  "model": "GeniZ Final Exp-C",
+  "mp_keys_final": [
+    "metapath_14_emb",
+    "metapath_2_emb",
+    "metapath_10_emb",
+    "metapath_5_emb",
+    "metapath_4_emb",
+    "metapath_7_emb",
+    "metapath_8_emb"
+  ],
+  "rama_a": [
+    "metapath_14_emb",
+    "metapath_2_emb",
+    "metapath_10_emb",
+    "metapath_5_emb"
+  ],
+  "rama_b": [
+    "metapath_4_emb",
+    "metapath_7_emb",
+    "metapath_8_emb"
+  ],
+  "test_metrics": {
+    "spearman": 0.677947328406103,
+    "ndcg": 0.48127719593563406,
+    "combined": 0.5796122621708685,
+    "r2": 0.2236384153366089,
+    "rbp_95": 0.07954672623004773,
+    "rbp_80": 0.1811959194678322
+  },
+  "attn_weights": {
+    "MP14": 0.2371,
+    "MP2": 0.0333,
+    "MP10": 0.0394,
+    "MP5": 0.129,
+    "MP4": 0.4051,
+    "MP7": 0.105,
+    "MP8": 0.0511
+  },
+  "pfi": [
+    {
+      "Metapath": "MP4",
+      "Schema": "Firm - Patent - Country - Patent - Firm",
+      "Branch": "B",
+      "NDCG drop (%)": 94.12,
+      "Spearman drop (%)": 23.76,
+      "RBP drop (%)": 97.51
+    },
+    {
+      "Metapath": "MP14",
+      "Schema": "FoS - FoS - FoS",
+      "Branch": "A",
+      "NDCG drop (%)": 14.65,
+      "Spearman drop (%)": 16.16,
+      "RBP drop (%)": 3.32
+    },
+    {
+      "Metapath": "MP7",
+      "Schema": "Firm - Country - Firm",
+      "Branch": "B",
+      "NDCG drop (%)": 6.76,
+      "Spearman drop (%)": 2.11,
+      "RBP drop (%)": 0.04
+    },
+    {
+      "Metapath": "MP2",
+      "Schema": "Firm - FoS - FoS - Firm",
+      "Branch": "A",
+      "NDCG drop (%)": 2.81,
+      "Spearman drop (%)": 9.69,
+      "RBP drop (%)": 0.28
+    },
+    {
+      "Metapath": "MP8",
+      "Schema": "Firm - Univ - Country - Univ - Firm",
+      "Branch": "B",
+      "NDCG drop (%)": 0.48,
+      "Spearman drop (%)": -0.43,
+      "RBP drop (%)": 0.37
+    },
+    {
+      "Metapath": "MP10",
+      "Schema": "FoS - Product - FoS",
+      "Branch": "A",
+      "NDCG drop (%)": -1.46,
+      "Spearman drop (%)": 0.71,
+      "RBP drop (%)": -0.87
+    },
+    {
+      "Metapath": "MP5",
+      "Schema": "Firm - Product - FoS - Product - Firm",
+      "Branch": "A",
+      "NDCG drop (%)": -22.43,
+      "Spearman drop (%)": 24.13,
+      "RBP drop (%)": -4.29
+    }
+  ],
+  "core_periphery": {
+    "core": {
+      "n": 325,
+      "pct": 0.34,
+      "mean_pr_zscore": 5.2467
+    },
+    "semi-core": {
+      "n": 3735,
+      "pct": 3.86,
+      "mean_pr_zscore": 0.0818
+    },
+    "semi-periphery": {
+      "n": 27038,
+      "pct": 27.93,
+      "mean_pr_zscore": 0.0419
+    },
+    "periphery": {
+      "n": 65719,
+      "pct": 67.88,
+      "mean_pr_zscore": 0.0069
+    }
+  },
+  "gmm_n_components": 4,
+  "vs_baseline": {
+    "spearman_delta": 0.014,
+    "ndcg_delta": 0.0437,
+    "combined_delta": 0.0288,
+    "rbp95_delta": 0.0015,
+    "n_metapaths_saved": 3
+  }
+}

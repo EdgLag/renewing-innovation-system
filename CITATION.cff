@@ -3,7 +3,7 @@ message: "If you use this software or data, please cite as below."
 type: software
 title: "Renewing Innovation Systems: Knowledge Pathways Structuring Technological Development"
 authors:
-  - family-names: Lagomarsino
+  - family-names: Lagos
     given-names: Edgardo
     orcid: ""
 repository-code: "https://github.com/EdgLag/renewing-innovation-systems"
